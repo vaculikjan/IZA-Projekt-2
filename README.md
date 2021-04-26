@@ -13,4 +13,5 @@ Aplikace je zaměřená na zobrazení základních informací o hráčích hry L
 
 Pro použití je momentálně nutné nastavit ve zdrojovém souboru *SwiftUI_test/ContentView.swift* proměnou `apiKey`. API klíč je totiž platný pouze 24 hodin. 
 
+<img src="summoner_lookup.png" width="200">
 ![Obrázek úvodní obrazovky s vyhledáváním](summoner_lookup.png)
