@@ -16,9 +16,12 @@ struct ContentView: View {
     @State var summoner : ProfileInfo? = nil
     @State var profile : [SummonerProfile] = []
     @State var match : [MatchInfo] = []
+    @State var matchHistory : MatchInfo? = nil
     var summonerName : String
     var shard : String
-    let apiKey = "RGAPI-6bd4820d-0296-4766-9795-a97d353e9a1e"
+    let apiKey = "RGAPI-a7d29b82-5bbd-4b0d-b40f-b4e584469834"
+    let solo = 420
+    let flex = 440
     
     var body: some View {
         
@@ -45,21 +48,32 @@ struct ContentView: View {
                         .frame(width: 200, alignment: .leading)
                         .padding(.trailing, 65)
                     }
-                }.padding(.bottom, 80)
+                }
+                .padding(.bottom, 80)
                 HStack(){
                     VStack{
                         if (profile.count > 0 && profile[0].queueType == "RANKED_SOLO_5x5") {
-                            Image(String(profile[0].tier))
-                            .resizable()
-                                .frame(width: 70.0, height: 80.0)
+                            
+                            NavigationLink(
+                                destination: HistoryView(matchHistory: matchHistory, summonerName: summonerName, apiKey: apiKey, shard: shard, queueType: solo)) {
+                                Image(String(profile[0].tier))
+                                    .resizable()
+                                    .frame(width: 70.0, height: 80.0)
+                            }
+                            
                             Text("Ranked Solo")
                                 .font(.caption)
                             Text(("\(profile[0].tier) \(profile[0].rank)").capitalized).fontWeight(.bold)
                         }
                         else if (profile.count > 1 && profile[1].queueType == "RANKED_SOLO_5x5") {
-                            Image(String(profile[1].tier))
-                            .resizable()
-                                .frame(width: 70.0, height: 80.0)
+                            
+                            NavigationLink(
+                                destination: HistoryView(matchHistory: matchHistory, summonerName: summonerName, apiKey: apiKey, shard: shard, queueType: solo)) {
+                                Image(String(profile[1].tier))
+                                    .resizable()
+                                    .frame(width: 70.0, height: 80.0)
+                            }
+                            
                             Text("Ranked Solo")
                                 .font(.caption)
                             Text(("\(profile[1].tier) \(profile[1].rank)").capitalized).fontWeight(.bold)
@@ -76,17 +90,27 @@ struct ContentView: View {
                     .padding(.trailing, 100)
                     VStack{
                         if (profile.count > 1 && profile[1].queueType == "RANKED_FLEX_SR") {
-                            Image(String(profile[1].tier))
-                            .resizable()
-                                .frame(width: 70.0, height: 80.0)
+                            
+                            NavigationLink(
+                                destination: HistoryView(matchHistory: matchHistory, summonerName: summonerName, apiKey: apiKey, shard: shard, queueType: flex)) {
+                                Image(String(profile[1].tier))
+                                    .resizable()
+                                    .frame(width: 70.0, height: 80.0)
+                            }
+                                
                             Text("Ranked Flex")
                                 .font(.caption)
                             Text(("\(profile[1].tier) \(profile[1].rank)").capitalized).fontWeight(.bold)
                         }
                         else if(profile.count > 0 && profile[0].queueType == "RANKED_FLEX_SR") {
-                            Image(String(profile[0].tier))
-                            .resizable()
-                                .frame(width: 70.0, height: 80.0)
+                            
+                            NavigationLink(
+                                destination: HistoryView(matchHistory: matchHistory, summonerName: summonerName, apiKey: apiKey, shard: shard, queueType: flex)) {
+                                Image(String(profile[0].tier))
+                                    .resizable()
+                                    .frame(width: 70.0, height: 80.0)
+                            }
+                            
                             Text("Ranked Flex")
                                 .font(.caption)
                             Text(("\(profile[0].tier) \(profile[0].rank)").capitalized).fontWeight(.bold)
@@ -189,6 +213,9 @@ struct ContentView: View {
     }
     
     func getSummonerData() -> Void {
+        if ((matchHistory) != nil) {
+            return
+        }
         if !summonerName.isAlphanumeric {
             return
         }
@@ -278,13 +305,15 @@ struct ContentView: View {
                     return
                 }
                 DispatchQueue.main.async {
+                    if jsonData.startIndex == 0 {
+                        matchHistory = jsonData
+                    }
                     for match in jsonData.matches {
                         championCountNo[championCount.firstIndex(of: match.champion)!] += 1
                         championCountNo[championCount.firstIndex(of: 999)!] += 1
                         let combined = zip(championCountNo, championCount).sorted {$0.0 > $1.0}
                         championCountNo = combined.map {$0.0}
                         championCount = combined.map {$0.1}
-                        
                     }
                     match.append(jsonData)
                 }

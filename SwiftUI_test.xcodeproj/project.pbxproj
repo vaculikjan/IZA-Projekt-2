@@ -16,6 +16,8 @@
 		3D0B88A92620ADD8007F5646 /* MatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B88A82620ADD8007F5646 /* MatchInfo.swift */; };
 		3D247A9E263735F40025C756 /* Champions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D247A9D263735F40025C756 /* Champions.swift */; };
 		3D247AA126373A230025C756 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D247AA026373A230025C756 /* Extensions.swift */; };
+		3D8542E526432C13007C1563 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8542E426432C13007C1563 /* HistoryView.swift */; };
+		3D8542E926433D90007C1563 /* MatchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8542E826433D90007C1563 /* MatchHistory.swift */; };
 		3DBCBDCB261E4A680043123C /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBCBDCA261E4A680043123C /* ProfileInfo.swift */; };
 		3DBCBDCF261F149B0043123C /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBCBDCE261F149B0043123C /* SearchView.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		3D0B88A82620ADD8007F5646 /* MatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchInfo.swift; sourceTree = "<group>"; };
 		3D247A9D263735F40025C756 /* Champions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Champions.swift; sourceTree = "<group>"; };
 		3D247AA026373A230025C756 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3D8542E426432C13007C1563 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		3D8542E826433D90007C1563 /* MatchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchHistory.swift; sourceTree = "<group>"; };
 		3DBCBDCA261E4A680043123C /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		3DBCBDCE261F149B0043123C /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +77,8 @@
 				3D04F397261DBF3B008A1CA1 /* SwiftUI_testApp.swift */,
 				3DBCBDCE261F149B0043123C /* SearchView.swift */,
 				3D04F399261DBF3B008A1CA1 /* ContentView.swift */,
+				3D8542E426432C13007C1563 /* HistoryView.swift */,
+				3D8542E826433D90007C1563 /* MatchHistory.swift */,
 				3D0B88A82620ADD8007F5646 /* MatchInfo.swift */,
 				3D04F3A7261DE3A3008A1CA1 /* SummonerProfile.swift */,
 				3D04F39B261DBF3B008A1CA1 /* Assets.xcassets */,
@@ -163,9 +169,11 @@
 				3D247AA126373A230025C756 /* Extensions.swift in Sources */,
 				3D04F39A261DBF3B008A1CA1 /* ContentView.swift in Sources */,
 				3D0B88A92620ADD8007F5646 /* MatchInfo.swift in Sources */,
+				3D8542E926433D90007C1563 /* MatchHistory.swift in Sources */,
 				3DBCBDCB261E4A680043123C /* ProfileInfo.swift in Sources */,
 				3D247A9E263735F40025C756 /* Champions.swift in Sources */,
 				3D04F3A8261DE3A3008A1CA1 /* SummonerProfile.swift in Sources */,
+				3D8542E526432C13007C1563 /* HistoryView.swift in Sources */,
 				3D0B88A5261F48DF007F5646 /* ProfileView.swift in Sources */,
 				3D04F398261DBF3B008A1CA1 /* SwiftUI_testApp.swift in Sources */,
 			);

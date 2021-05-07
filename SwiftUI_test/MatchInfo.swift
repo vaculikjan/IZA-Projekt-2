@@ -6,6 +6,7 @@
 //
 
 public struct Matches: Decodable, Hashable{
+    public var gameId : Int
     public var champion : Int
     public var queue : Int
     
